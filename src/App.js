@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import Blogs from './Components/Blogs';
+import Navbar from './Components/Navbar';
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import {ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import SignUp from './Components/SignUp';
+import SignIn from './Components/SignIn';
+import PostArticle from './Components/PostArticle';
+import BlogSinglePage from './Components/BlogSinglePage';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <ToastContainer/> 
+       <BrowserRouter>
+       <Navbar/>
+         <Routes>
+          <Route path='/' element={<Blogs/>}/>
+          <Route path='/signin' element={<SignIn/>}/>
+          <Route path='/signup' element={<SignUp/>}/>
+          <Route path='/postarticle' element={<PostArticle/>}/>
+          <Route path='/blogsinglepage' element={<BlogSinglePage/>}/>
+         </Routes>
+         
+       </BrowserRouter>
     </div>
   );
 }
 
 export default App;
+
